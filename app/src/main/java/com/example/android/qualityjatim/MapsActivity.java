@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,8 +32,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        //menampilkan title Toolbar
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         String title = "PETA LOKASI";
-        setActionBarTitle(title);
+        this.setTitle(title);
+
 
         // berfungsi untuk menampilkan icon back (kembali) di pojok kiri atas
         ActionBar actionBar = getSupportActionBar();
@@ -107,8 +112,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
-    private void setActionBarTitle(String title) {
-        getSupportActionBar().setTitle(title);
-    }
+//    private void setActionBarTitle(String title) {
+//        getSupportActionBar().setTitle(title);
+//    }
 
 }

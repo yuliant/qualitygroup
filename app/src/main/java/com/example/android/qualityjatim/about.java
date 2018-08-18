@@ -3,10 +3,8 @@ package com.example.android.qualityjatim;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
@@ -18,15 +16,17 @@ public class about extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-//        Toolbar bar = (Toolbar)findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         String title = "BANTUAN";
-        setActionBarTitle(title);
+        this.setTitle(title);
 
         // berfungsi untuk menampilkan icon back (kembali) di pojok kiri atas
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+//        ActionBar actionBar = getSupportActionBar();
+//        if (actionBar != null) {
+//            actionBar.setDisplayHomeAsUpEnabled(true);
+//        }
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TextView email = (TextView) findViewById(R.id.email);
         email.setOnClickListener(new View.OnClickListener() {
@@ -109,20 +109,21 @@ public class about extends AppCompatActivity {
 
     }
 
-    private void setActionBarTitle(String title) {
-        getSupportActionBar().setTitle(title);
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    public boolean onCreateOptionsMenu(Menu menu) {
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case android.R.id.home:
+//                finish();
+//                return true;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
+//
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        return true;
+//    }
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
         return true;
     }
 }
