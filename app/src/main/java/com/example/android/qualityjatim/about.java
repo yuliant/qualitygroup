@@ -18,7 +18,7 @@ public class about extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        String title = "BANTUAN";
+        String title = "Bantuan";
         this.setTitle(title);
 
         // berfungsi untuk menampilkan icon back (kembali) di pojok kiri atas

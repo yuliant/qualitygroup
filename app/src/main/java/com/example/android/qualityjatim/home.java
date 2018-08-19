@@ -3,6 +3,7 @@ package com.example.android.qualityjatim;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -12,20 +13,22 @@ public class home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         setContentView(R.layout.activity_home);
 
-//        String title = "Quality Group - Krian";
-//        setActionBarTitle(title);
 
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        String title = "Tipe Rumah dan Fasilitas";
+        this.setTitle(title);
     }
-//    private void setActionBarTitle(String title){
-//        getSupportActionBar().setTitle(title);
-//    }
 
     public void about(View view) {
         Intent intent = new Intent(home.this, about.class);
+        startActivity(intent);
+    }
+
+    public void promo(View view) {
+        Intent intent = new Intent(home.this, MainActivity.class);
         startActivity(intent);
     }
 

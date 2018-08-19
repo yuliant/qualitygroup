@@ -35,7 +35,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //menampilkan title Toolbar
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        String title = "PETA LOKASI";
+        String title = "Peta Lokasi";
         this.setTitle(title);
 
 
