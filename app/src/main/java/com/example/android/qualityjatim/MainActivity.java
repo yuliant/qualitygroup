@@ -3,8 +3,10 @@ package com.example.android.qualityjatim;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Data> listdata;
 
     private GridLayoutManager layoutManager;
+    private LinearLayoutManager linearLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
-        layoutManager = new GridLayoutManager(this,2);
-        layoutManager.setOrientation(GridLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(layoutManager);
+//        layoutManager = new GridLayoutManager(this,2);
+//        layoutManager.setOrientation(GridLayoutManager.VERTICAL);
+//        recyclerView.setLayoutManager(layoutManager);
+        linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
 
         listdata = new ArrayList<Data>();
         ambidata();
@@ -61,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONArray response) {
                 if (response.length() > 0) {
-                    for (int i = 0; i < response.length(); i++) {
+                    for (int i = response.length(); i >= 0; i--) {
                         try {
                             JSONObject data = response.getJSONObject(i);
                             Data item = new Data();
@@ -75,13 +80,15 @@ public class MainActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
+                }else{
+                    Toast.makeText(getApplicationContext(),"Tidak ada data", Toast.LENGTH_SHORT).show();
                 }
             }
         },
         new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+//                Toast.makeText(getApplicationContext(),"Aplikasi tidak meresponse", Toast.LENGTH_SHORT).show();
             }
         }) {
         };

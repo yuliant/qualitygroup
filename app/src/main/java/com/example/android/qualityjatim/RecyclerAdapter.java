@@ -43,6 +43,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         final ViewHolder x=holder;
         Glide.with(activity)
                 .load(listdata.get(position).getThubnail())
+                .override(350, 350) // menambahkan ini untuk tampilan list CardView
                 .into(holder.thumbnail);
         holder.id.setVisibility(View.GONE);
     }
