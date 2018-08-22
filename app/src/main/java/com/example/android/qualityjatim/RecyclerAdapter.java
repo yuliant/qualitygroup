@@ -3,13 +3,16 @@ package com.example.android.qualityjatim;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -46,6 +49,26 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 .override(350, 350) // menambahkan ini untuk tampilan list CardView
                 .into(holder.thumbnail);
         holder.id.setVisibility(View.GONE);
+
+        holder.btnFavorite.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
+            @Override
+            public void onItemClicked(View view, int position) {
+//                Toast.makeText(activity, "Details "+listdata.get(position).getJudul(), Toast.LENGTH_SHORT).show();
+
+                Intent KirimData = new Intent(activity, DetailPromo.class);
+                KirimData.putExtra("JDL",listdata.get(position).getJudul());
+                KirimData.putExtra("GMR",listdata.get(position).getThubnail());
+                KirimData.putExtra("DES",listdata.get(position).getDeskripsi());
+                activity.startActivity(KirimData);
+            }
+        }));
+
+        holder.btnShare.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
+            @Override
+            public void onItemClicked(View view, int position) {
+                Toast.makeText(activity, "Share "+listdata.get(position).getJudul(), Toast.LENGTH_SHORT).show();
+            }
+        }));
     }
     @Override
     public int getItemCount() {
@@ -57,6 +80,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         private TextView id,judul,link;
         private ImageView thumbnail;
 
+        Button btnFavorite, btnShare;
+
         public ViewHolder(View v) {
             super(v);
             cv=(CardView)v.findViewById(R.id.card_view);
@@ -64,6 +89,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             judul=(TextView)v.findViewById(R.id.judul);
             link=(TextView)v.findViewById(R.id.link);
             thumbnail=(ImageView)v.findViewById(R.id.thumbnail);
+
+            btnFavorite = (Button)itemView.findViewById(R.id.btn_set_favorite);
+            btnShare = (Button)itemView.findViewById(R.id.btn_set_share);
         }
     }
 

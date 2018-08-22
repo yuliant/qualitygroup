@@ -73,7 +73,9 @@ public class MainActivity extends AppCompatActivity {
                             item.setId(data.getString("id"));
                             item.setJudul(data.getString("judul"));
                             item.setLink(data.getString("link_website"));
+                            item.setDeskripsi(data.getString("deskripsi"));
                             item.setThubnail(URL+"/images/"+data.getString("gambar"));
+//                            item.setLink(data.getString("deskripsi"));
                             listdata.add(item);
                             recyclerAdapter.notifyDataSetChanged();
                         } catch (JSONException e) {

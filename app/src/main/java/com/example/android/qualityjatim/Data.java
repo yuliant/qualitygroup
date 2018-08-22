@@ -6,6 +6,8 @@ public class Data {
     private String link;
     private String thubnail;
 
+    private String deskripsi;
+
     public String getId() {
         return id;
     }
@@ -35,5 +37,12 @@ public class Data {
     }
     public void setThubnail(String thubnail) {
         this.thubnail = thubnail;
+    }
+
+    public String getDeskripsi() {
+        return deskripsi;
+    }
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
     }
 }

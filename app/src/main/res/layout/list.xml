@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="11sp"
                 style="@style/Widget.AppCompat.Button.Colored"
-                android:text="details"
+                android:text="detail"
                 android:layout_weight="1"/>
             <Button
                 android:id="@+id/btn_set_share"
