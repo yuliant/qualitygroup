@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,13 +37,29 @@ public class DetailPromo extends AppCompatActivity {
                 .load(img)
                 .into(GambarJudul);
 
-//        TextView deskripsi = (TextView) findViewById(R.id.deskripsi);
-//        String des = getIntent().getStringExtra("DES");
-//        deskripsi.setText(des);
+        TextView link = (TextView) findViewById(R.id.link);
+        String li = getIntent().getStringExtra("LINK");
+        link.setText(li);
 
         WebView deskripsi = (WebView) findViewById(R.id.deskripsi);
         String des = getIntent().getStringExtra("DES");
         deskripsi.loadData(des, "text/html", "UTF-8");
+
+//        final Button share = (Button)findViewById(R.id.share);
+        Button share = (Button)findViewById(R.id.share);
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String sh = getIntent().getStringExtra("SHARE");
+//                share.setText(sh);
+
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "My App");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, sh);
+                startActivity(shareIntent);
+            }
+        });
 
     }
 

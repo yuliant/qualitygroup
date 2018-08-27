@@ -74,7 +74,6 @@
                 android:layout_height="wrap_content"
                 android:textSize="11sp"
                 android:textStyle="bold"
-                android:textColor="@color/colorAccent"
                 android:text="share"
                 android:layout_weight="1"/>
         </LinearLayout>

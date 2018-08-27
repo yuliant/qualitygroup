@@ -91,6 +91,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
 //                Toast.makeText(getApplicationContext(),"Aplikasi tidak meresponse", Toast.LENGTH_SHORT).show();
+
+//                ProgressBar Pbar2 = (ProgressBar)findViewById(R.id.progress);
+//                if (error != null){
+//                    Pbar2.setVisibility(View.GONE);
+//                }else{
+//                    Pbar2.setVisibility(View.VISIBLE);
+//                }
+
             }
         }) {
         };

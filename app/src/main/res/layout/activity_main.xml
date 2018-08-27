@@ -19,14 +19,21 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <!--<ProgressBar-->
+        <!--android:layout_below="@id/appbar"-->
+        <!--android:id="@+id/progress"-->
+        <!--android:visibility="visible"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:padding="160dp"-->
+        <!--android:layout_gravity="center"/>-->
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
+        android:layout_below="@id/appbar"
         android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_below="@id/appbar"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="wrap_content"/>
 
 
 </RelativeLayout>

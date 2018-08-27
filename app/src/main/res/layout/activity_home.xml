@@ -1,139 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".home">
 
-    <LinearLayout
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:elevation="4dp"
+        tools:targetApi="lollipop">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="220dp">
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:background="#000000" />
+    </android.support.design.widget.AppBarLayout>
 
-            <ImageView
-                android:id="@+id/img"
-                android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:alpha="0.7"
-                android:background="#000000"
-                android:scaleType="centerCrop"
-                android:src="@drawable/perum2" />
-
-            <ImageView
-                android:layout_width="220dp"
-                android:layout_height="220dp"
-                android:layout_centerInParent="true"
-                android:src="@drawable/logo" />
-
-        </RelativeLayout>
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="30dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <android.support.v7.widget.CardView
-                style="@style/cardView"
-                android:onClick="peta"
-                android:layout_marginRight="5dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="220dp">
 
-                <LinearLayout
-                    style="@style/LinearCardView">
+                <!--<ImageView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="220dp"-->
+                <!--android:background="#000000" />-->
 
-                    <ImageView
-                        style="@style/imgCardView"
-                        android:src="@drawable/ic_map_black_24dp" />
+                <!--<ImageView-->
+                <!--android:id="@+id/img"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="220dp"-->
+                <!--android:alpha="0.7"-->
+                <!--android:background="#000000"-->
+                <!--android:scaleType="centerCrop"-->
+                <!--android:src="@drawable/perum2" />-->
 
-                    <TextView
-                        style="@style/textStyle"
-                        android:text="@string/peta_lokasi" />
+                <ImageView
+                    android:layout_width="220dp"
+                    android:layout_height="220dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/logo" />
 
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </RelativeLayout>
 
-            <android.support.v7.widget.CardView
-                style="@style/cardView"
-                android:layout_marginLeft="5dp">
 
-                <LinearLayout
-                    style="@style/LinearCardView">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-                    <ImageView
-                        style="@style/imgCardView"
-                        android:src="@drawable/ic_home_black_24dp" />
+                <android.support.v7.widget.CardView
+                    style="@style/cardView.margin"
+                    android:onClick="peta">
 
-                    <TextView
-                        style="@style/textStyle"
-                        android:text="@string/tipe_rumah" />
+                    <LinearLayout style="@style/LinearCardView">
 
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
+                        <ImageView
+                            style="@style/imgCardView"
+                            android:src="@drawable/ic_map_black_24dp" />
+
+                        <TextView
+                            style="@style/textStyle"
+                            android:text="@string/peta_lokasi" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView style="@style/cardView.margin">
+
+                    <LinearLayout style="@style/LinearCardView">
+
+                        <ImageView
+                            style="@style/imgCardView"
+                            android:src="@drawable/ic_home_black_24dp" />
+
+                        <TextView
+                            style="@style/textStyle"
+                            android:text="@string/tipe_rumah" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.CardView
+                    style="@style/cardView.margin"
+                    android:onClick="promo">
+
+                    <LinearLayout style="@style/LinearCardView">
+
+                        <ImageView
+                            style="@style/imgCardView"
+                            android:src="@drawable/ic_loyalty_black_24dp" />
+
+                        <TextView
+                            style="@style/textStyle"
+                            android:text="@string/promo_kami" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    style="@style/cardView.margin"
+                    android:onClick="about">
+
+                    <LinearLayout style="@style/LinearCardView">
+
+                        <ImageView
+                            style="@style/imgCardView"
+                            android:src="@drawable/ic_live_help_black_24dp" />
+
+                        <TextView
+                            style="@style/textStyle"
+                            android:text="@string/tentang_kami" />
+
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="30dp"
-            android:orientation="horizontal">
-
-            <android.support.v7.widget.CardView
-                android:onClick="promo"
-                style="@style/cardView"
-                android:layout_marginRight="5dp">
-
-                <LinearLayout
-                    style="@style/LinearCardView">
-
-                    <ImageView
-                        style="@style/imgCardView"
-                        android:src="@drawable/ic_loyalty_black_24dp" />
-
-                    <TextView
-                        style="@style/textStyle"
-                        android:text="@string/promo_kami" />
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                style="@style/cardView"
-                android:onClick="about"
-                android:layout_marginLeft="5dp">
-
-                <LinearLayout
-                    style="@style/LinearCardView">
-
-                    <ImageView
-                        style="@style/imgCardView"
-                        android:src="@drawable/ic_live_help_black_24dp" />
-
-                    <TextView
-                        style="@style/textStyle"
-                        android:text="@string/tentang_kami" />
+    </ScrollView>
 
 
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-        </LinearLayout>
-    </LinearLayout>
-
-
-</ScrollView>
+</RelativeLayout>

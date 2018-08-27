@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -55,10 +54,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             public void onItemClicked(View view, int position) {
 //                Toast.makeText(activity, "Details "+listdata.get(position).getJudul(), Toast.LENGTH_SHORT).show();
 
+                String judul=listdata.get(position).getJudul();
+                String tgl=listdata.get(position).getLink();
+                String link=listdata.get(position).getThubnail();
+                String shareBody= judul+" promo baru berlaku sampai "+tgl+ " Selengkapnya cek disini "+link;
+
                 Intent KirimData = new Intent(activity, DetailPromo.class);
                 KirimData.putExtra("JDL",listdata.get(position).getJudul());
                 KirimData.putExtra("GMR",listdata.get(position).getThubnail());
                 KirimData.putExtra("DES",listdata.get(position).getDeskripsi());
+                KirimData.putExtra("LINK",listdata.get(position).getLink());
+                KirimData.putExtra("SHARE",shareBody);
                 activity.startActivity(KirimData);
             }
         }));
@@ -66,7 +72,38 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.btnShare.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
             public void onItemClicked(View view, int position) {
-                Toast.makeText(activity, "Share "+listdata.get(position).getJudul(), Toast.LENGTH_SHORT).show();
+                // ---------------------------------------------------------------------------
+                // project sisa kirim gambar ke sosmed
+
+
+                /*Toast.makeText(activity, "Share "+listdata.get(position).getJudul(), Toast.LENGTH_SHORT).show();
+                Intent whatsappIntent = new Intent(Intent.ACTION_SEND);
+                Uri imageuri = Uri.parse(listdata.get(position).getThubnail());
+                String shareBody = listdata.get(position).getThubnail();
+                String inipromo = listdata.get(position).getJudul()+" promo baru berlaku sampai "+listdata.get(position).getLink();
+//                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                whatsappIntent.setType("image/jpg");
+                whatsappIntent.putExtra(Intent.EXTRA_STREAM, imageuri);
+//                whatsappIntent.putExtra(Intent.EXTRA_TEXT, inipromo);
+//                whatsappIntent.setPackage("com.whatsapp");
+                activity.startActivity(Intent.createChooser(whatsappIntent,"Send image"));
+                try {
+                    activity.startActivity(whatsappIntent);
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(activity,"Whatsapp have not been installed.",Toast.LENGTH_SHORT).show();
+                }*/
+                // ---------------------------------------------------------------------------
+
+                String judul=listdata.get(position).getJudul();
+                String tgl=listdata.get(position).getLink();
+                String link=listdata.get(position).getThubnail();
+                String shareBody= judul+" promo baru berlaku sampai "+tgl+ " Selengkapnya cek disini "+link;
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "My App");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                activity.startActivity(Intent.createChooser(shareIntent,"Share via"));
+
             }
         }));
     }
