@@ -12,38 +12,44 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-public class DetailPromo extends AppCompatActivity {
+public class DetailTipe extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_promo);
+        setContentView(R.layout.activity_detail_tipe);
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        String title = "Detail Promo";
+        String title = "Detail Rumah";
         this.setTitle(title);
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        TextView judul = (TextView) findViewById(R.id.judul);
-        String jdl = getIntent().getStringExtra("JDL");
+        TextView judul = (TextView) findViewById(R.id.rumah);
+        String jdl = getIntent().getStringExtra("RMH");
         judul.setText(jdl);
+
+        TextView luas = (TextView) findViewById(R.id.luas);
+        String lus = getIntent().getStringExtra("LUAS");
+        luas.setText(lus);
 
         ImageView GambarJudul = (ImageView) findViewById(R.id.thumbnail);
         String img = getIntent().getStringExtra("GMR");
-        Glide.with(DetailPromo.this)
+        Glide.with(DetailTipe.this)
                 // LOAD URL DARI INTERNET
                 .load(img)
                 .into(GambarJudul);
-
-        TextView link = (TextView) findViewById(R.id.link);
-        String li = getIntent().getStringExtra("LINK");
+        TextView link = (TextView) findViewById(R.id.harga);
+        String li = getIntent().getStringExtra("HRG");
         link.setText(li);
 
-        WebView deskripsi = (WebView) findViewById(R.id.deskripsi);
-        String des = getIntent().getStringExtra("DES");
-        deskripsi.loadData(des, "text/html", "UTF-8");
+        WebView fasilitas = (WebView) findViewById(R.id.fasilitas);
+        String fas = getIntent().getStringExtra("FAS");
+        fasilitas.loadData(fas, "text/html", "UTF-8");
+
+        WebView keterangan = (WebView) findViewById(R.id.keterangan);
+        String ket = getIntent().getStringExtra("KET");
+        keterangan.loadData(ket, "text/html", "UTF-8");
 
         Button share = (Button)findViewById(R.id.share);
         share.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +64,6 @@ public class DetailPromo extends AppCompatActivity {
                 startActivity(shareIntent);
             }
         });
-
     }
 
     @Override
@@ -68,7 +73,7 @@ public class DetailPromo extends AppCompatActivity {
     }
 
     public void about(View view) {
-        Intent intent = new Intent(DetailPromo.this, about.class);
+        Intent intent = new Intent(DetailTipe.this, about.class);
         startActivity(intent);
     }
 }

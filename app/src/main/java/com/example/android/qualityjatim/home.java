@@ -27,6 +27,11 @@ public class home extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void rumah(View view) {
+        Intent intent = new Intent(home.this, Tipe.class);
+        startActivity(intent);
+    }
+
     public void promo(View view) {
         Intent intent = new Intent(home.this, MainActivity.class);
         startActivity(intent);

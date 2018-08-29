@@ -20,7 +20,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private String URL = "http://hostofquality.000webhostapp.com";
+    private String URL = "http://hostofquality.000webhostapp.com/admin/riverside";
     private RecyclerAdapter recyclerAdapter;
     private RecyclerView recyclerView;
     private ArrayList<Data> listdata;
