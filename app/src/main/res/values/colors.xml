@@ -12,4 +12,6 @@
     <color name="colorBackground">#585858</color>
     <color name="putih">#ffffff</color>
     <color name="hitam">#000000</color>
+    <color name="merah">#da251b</color>
+
 </resources>
