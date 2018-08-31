@@ -49,10 +49,10 @@
                 <!--android:src="@drawable/perum2" />-->
 
                 <ImageView
-                    android:layout_width="320dp"
+                    android:layout_width="220dp"
                     android:layout_height="180dp"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/logo4" />
+                    android:src="@drawable/logo" />
 
             </RelativeLayout>
 

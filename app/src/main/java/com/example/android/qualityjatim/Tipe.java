@@ -1,11 +1,16 @@
 package com.example.android.qualityjatim;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -19,7 +24,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Tipe extends AppCompatActivity {
+public class Tipe extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener{
 
     private String URL = "http://hostofquality.000webhostapp.com/admin/tiperiverside";
     private TipeAdapter TipeAdapter;
@@ -28,6 +33,8 @@ public class Tipe extends AppCompatActivity {
 
     private GridLayoutManager layoutManager;
     private LinearLayoutManager linearLayoutManager;
+
+    private SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +53,82 @@ public class Tipe extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
 
         listdata = new ArrayList<DataTipe>();
-        ambidata();
+//        ambidata();
         TipeAdapter = new TipeAdapter(this,listdata);
         recyclerView.setAdapter(TipeAdapter);
         TipeAdapter.notifyDataSetChanged();
+
+        mSwipeRefreshLayout = findViewById(R.id.swiperefresh);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
+                android.R.color.holo_green_dark,
+                android.R.color.holo_orange_dark,
+                android.R.color.holo_blue_dark);
+
+        mSwipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                mSwipeRefreshLayout.setRefreshing(true);
+                ambidata();
+            }
+        });
     }
+
+    // ---------------------------------------------------------------------------->
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.manu_bar,menu);
+        MenuItem searchItem = menu.findItem(R.id.search);
+        SearchView searchView  = new SearchView(Tipe.this);
+        //searchView.setBackgroundColor(getResources().getColor(R.color.putih));
+        searchView.setQueryHint("Cari Sesuatu....");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String nextText) {
+                //Data akan berubah saat user menginputkan text/kata kunci pada SearchView
+                nextText = nextText.toLowerCase();
+                ArrayList<DataTipe> dataFilter = new ArrayList<>();
+                for(DataTipe data : listdata){
+                    String nama = data.getRumah().toLowerCase();
+                    String harga = data.getHarga().toLowerCase();
+                    if(nama.contains(nextText)){
+                        dataFilter.add(data);
+                    }
+                    if(harga.contains(nextText)){
+                        dataFilter.add(data);
+                    }
+                }
+                TipeAdapter.setFilter(dataFilter);
+                return true;
+            }
+        });
+        searchItem.setActionView(searchView);
+
+        return true;
+    }
+
+    //<------------------------------------------------------------------------------------------//
+
+
+    @Override
+    public void onRefresh() {
+
+        if(TipeAdapter != null){
+            listdata.clear();
+            TipeAdapter.notifyDataSetChanged();
+            ambidata();
+        }else {
+            ambidata();
+        }
+
+    }
+
     @Override
     public boolean onSupportNavigateUp(){
         finish();
@@ -58,6 +136,7 @@ public class Tipe extends AppCompatActivity {
     }
 
     public void ambidata(){
+        mSwipeRefreshLayout.setRefreshing(true);
         JsonArrayRequest arrReq = new JsonArrayRequest(URL+"/json/script.php",
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -84,6 +163,7 @@ public class Tipe extends AppCompatActivity {
                         }else{
                             Toast.makeText(getApplicationContext(),"Tidak ada data", Toast.LENGTH_SHORT).show();
                         }
+                        mSwipeRefreshLayout.setRefreshing(false);
                     }
                 },
                 new Response.ErrorListener() {

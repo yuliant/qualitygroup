@@ -132,4 +132,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         }
     }
 
+    //-----------------------------------------------------
+    void setFilter(ArrayList<Data> filterList){
+        listdata = new ArrayList<>();
+        listdata.addAll(filterList);
+        notifyDataSetChanged();
+    }
+
+
 }

@@ -18,7 +18,7 @@ public class home extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        String title = "The Quality Riverside";
+        String title = "The Quality Group";
         this.setTitle(title);
     }
 

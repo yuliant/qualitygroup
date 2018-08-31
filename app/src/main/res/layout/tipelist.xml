@@ -50,22 +50,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/thumbnail">
+            <!--<TextView-->
+                <!--android:id="@+id/rp"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Rp"-->
+                <!--android:layout_marginBottom="8dp"-->
+                <!--android:layout_marginLeft="16dp"/>-->
             <TextView
-                android:id="@+id/rp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="16dp"/>
-            <TextView
-                android:layout_toRightOf="@id/rp"
                 android:id="@+id/harga"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="remarks"
                 android:layout_marginBottom="8dp"
                 android:layout_marginRight="6dp"
-                android:layout_marginLeft="2dp"/>
+                android:layout_marginLeft="16dp"/>
         </RelativeLayout>
         <LinearLayout
             android:layout_width="match_parent"

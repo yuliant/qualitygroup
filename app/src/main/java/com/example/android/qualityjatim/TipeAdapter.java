@@ -111,4 +111,11 @@ public class TipeAdapter extends RecyclerView.Adapter<TipeAdapter.TipeViewHolder
             btnShare = (Button)itemView.findViewById(R.id.btn_set_share);
         }
     }
+
+    //-----------------------------------------------------
+    void setFilter(ArrayList<DataTipe> filterList){
+        listdata = new ArrayList<>();
+        listdata.addAll(filterList);
+        notifyDataSetChanged();
+    }
 }

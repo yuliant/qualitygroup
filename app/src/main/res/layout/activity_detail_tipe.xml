@@ -40,25 +40,22 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+                <!--<TextView-->
+                    <!--android:textStyle="italic"-->
+                    <!--android:textColor="@color/merah"-->
+                    <!--android:id="@+id/rp"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Rp"-->
+                    <!--android:layout_marginBottom="8dp"-->
+                    <!--android:layout_marginLeft="10dp"/>-->
                 <TextView
-                    android:textStyle="italic"
-                    android:textColor="@color/merah"
-                    android:id="@+id/rp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Rp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="10dp"/>
-                <TextView
-                    android:textStyle="italic"
-                    android:textColor="@color/merah"
-                    android:layout_toRightOf="@id/rp"
                     android:id="@+id/harga"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="remarks"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="2dp"/>
+                    android:layout_marginLeft="10dp"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_marginTop="5dp"
