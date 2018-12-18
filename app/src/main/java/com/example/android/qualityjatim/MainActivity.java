@@ -98,10 +98,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 for(Data data : listdata){
                     String nama = data.getJudul().toLowerCase();
                     String link = data.getLink().toLowerCase();
-                    if(nama.contains(nextText)){
-                        dataFilter.add(data);
-                    }
-                    if(link.contains(nextText)){
+                    if(nama.contains(nextText) || link.contains(nextText)){
                         dataFilter.add(data);
                     }
                 }

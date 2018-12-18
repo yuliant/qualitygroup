@@ -97,10 +97,7 @@ public class Tipe extends AppCompatActivity implements SwipeRefreshLayout.OnRefr
                 for(DataTipe data : listdata){
                     String nama = data.getRumah().toLowerCase();
                     String harga = data.getHarga().toLowerCase();
-                    if(nama.contains(nextText)){
-                        dataFilter.add(data);
-                    }
-                    if(harga.contains(nextText)){
+                    if(nama.contains(nextText) || harga.contains(nextText)){
                         dataFilter.add(data);
                     }
                 }
