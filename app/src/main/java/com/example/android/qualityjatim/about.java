@@ -33,7 +33,7 @@ public class about extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
-                intent.setData(Uri.parse("mailto: masrizal04@gmail.com")); //hanya email app yang bisa menangani ini
+                intent.setData(Uri.parse("mailto: putraxcode1997@gmail.com")); //hanya email app yang bisa menangani ini
                 intent.putExtra(Intent.EXTRA_SUBJECT, "PESAN DARI APLIKASI");
                 intent.putExtra(Intent.EXTRA_TEXT, "Assaalamualiakum Qulaity Group");
                 startActivity(intent);
@@ -78,7 +78,7 @@ public class about extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse("https://www.instagram.com/masrizaleka/"));
+                intent.setData(Uri.parse("https://www.instagram.com/m.putra_/"));
                 startActivity(intent);
             }
         });
@@ -90,7 +90,7 @@ public class about extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse("https://twitter.com/masrizal_ey"));
+                intent.setData(Uri.parse("https://twitter.com/Putramu00630833"));
                 startActivity(intent);
             }
         });
@@ -102,7 +102,7 @@ public class about extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse("https://www.facebook.com/rizal.ekayulianto"));
+                intent.setData(Uri.parse("https://www.facebook.com/muhammad.putra.1297"));
                 startActivity(intent);
             }
         });
