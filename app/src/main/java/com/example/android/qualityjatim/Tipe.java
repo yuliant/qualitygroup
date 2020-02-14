@@ -1,6 +1,7 @@
 package com.example.android.qualityjatim;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.android.qualityjatim.global.GlobalMarketActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -108,6 +110,18 @@ public class Tipe extends AppCompatActivity implements SwipeRefreshLayout.OnRefr
         searchItem.setActionView(searchView);
 
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.market_place:
+                Intent mIntent = new Intent(this, GlobalMarketActivity.class);
+                startActivity(mIntent);
+                return true;
+            default:
+                return true;
+        }
     }
 
     //<------------------------------------------------------------------------------------------//

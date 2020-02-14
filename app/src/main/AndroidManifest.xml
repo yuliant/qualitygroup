@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -19,6 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".global.GlobalMarketActivity"></activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".home">
             <intent-filter>
@@ -45,7 +45,7 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".DetailPromo" />
-        <activity android:name=".DetailTipe"></activity>
+        <activity android:name=".DetailTipe" />
     </application>
 
 </manifest>
